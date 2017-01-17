@@ -27,3 +27,12 @@ When you do action in Git, nearly all of them only add data to the Git database.
 
 * The Three States
 Git has three main stages that your files can reside in: committed, modified, and staged. Committed means that the data is safely stored in your local database. Modified means that you have changed the files but have not committed in your database. Staged means that you have marked a modified file in its current version to go into your next commit snapshot.
+
+1.4 The Command Line
+There are several ways to use Git, including command line and graphic interface. Command line is a place that you can use all the commands of git. GUI is only a collection of part of commands. If you are use command line sucessfully, you can use GUI as well, while the opposite is not necessarily true. So we will expect you to know how to open termianl in Mac or Command Prompt or Powershell in Windows.
+
+1.5 Installing Git
+Debian-based distribution like Ubuntu, sudo apt-get install git-all
+
+1.6 First-Time Git Setup
+Git comes with a tool called git config that let you get and set configuration varibles that control all aspects of how Git looks and operates.
