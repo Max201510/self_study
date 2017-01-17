@@ -36,3 +36,6 @@ Debian-based distribution like Ubuntu, sudo apt-get install git-all
 
 1.6 First-Time Git Setup
 Git comes with a tool called git config that let you get and set configuration varibles that control all aspects of how Git looks and operates.
+$ git config --global user.name "John Doe"
+$ git config --global user.email johndoe@example.com
+$ git config --global core.editor vim
