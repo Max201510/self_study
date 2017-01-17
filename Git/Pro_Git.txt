@@ -1,3 +1,29 @@
 Chapter 1. Getting Started
 1.1 About version control
+Version control is a system that recoreds changes to a file or set of files over time so that you can recall specific versions later. It can be used not only for source code management but also any kinds of files.
+* Local version control systems
+if you want to record you previous versions, a simple way is to copy them after a period of time to another folder. If you are clear enough, you would select time stamp folder. Based on this idea, local version control systems were born which had a simple database that kept all the chages to files under version control.
+* Centralized version control systems
+ the major local VCS has encountered with is that when people need to collaborate with each other in differen places. To deal with this problem, CVSC were developed. These systems, such as CVS, Subversion and Perforce, have a single server that records all the versioned files. Every client check out files from that central place.
+* Distributed version control systems
+CVCS has a big problem that if the sever down, during that period nobody can collobrate at all or save versioned changes to anything they're working on. If the server corrupted, you lose absolutely everything. In order to deal with this problem, DVCS such as Git, Mercurial, or Bazaar, client does not check out the latest snapshot of the files; they fully mirror the repository. Thus if any server dies, and these clients can back up to server to restore it. Every clone is a full backup of all the data.
 
+1.2  A short history of Git
+In 2002, Linux kernel project begun using a DCVS called BitKeeper. However, in 2005, the relationship between community that developed the Linux kernel and the commercial company that developed BitKeeper broke down. This prompted the Linux development community to develop their own tool based on some lessons they learned while using BitKeeper. Since 2005, Git has been matured develped, with an extraordinary feature of Branching for non-linear development.
+
+1.3 Git Basics
+* Snapshots, Not difference
+Most other systems store information as s list of file-based changes. Git think of the information they keep as a set of files and changes made to each file over time. Every time you commit or save in Git, it takes a photo of what all your files look like at that moment and stores a reference to that snapshot. Git thinks its data more like a stream of snapshots.
+
+* Nearly Every Operation Is Local
+One of the most obvious advantage of Git is that you can work locally. You do not need work on netwwork latency overhead. If you want to see the previous version of your work, no need to go to server to download. You could see it locally. You could work on airplane and everywhere you want to.
+
+* Git has integrity
+Everything in Git is check-summed before it is stored and is then referred to by that checksum. This guranteens that it's impossible to change the contents of any file or directory with Git knowing about it. You can't lose information in transit or get file corruption with Git being able to detect it.
+The mechanism that Git uses for this checksumming is called a SHA-1 hash. This is a 40-character string composed of hexadecimal characters and calculated based on the content of a file or directory structure in Git. Git sotres everything in its database not by file name but by the hash value of its contents.
+
+*Git generally Only Adds Data
+When you do action in Git, nearly all of them only add data to the Git database. It is hard to get the system to do anything that erase data in anyway. It is safe. Even when you delete some files, it records the content and this action in Git. You could recover them easily.
+
+* The Three States
+Git has three main stages that your files can reside in: committed, modified, and staged. Committed means that the data is safely stored in your local database. Modified means that you have changed the files but have not committed in your database. Staged means that you have marked a modified file in its current version to go into your next commit snapshot.
