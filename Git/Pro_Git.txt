@@ -39,3 +39,14 @@ Git comes with a tool called git config that let you get and set configuration v
 $ git config --global user.name "John Doe"
 $ git config --global user.email johndoe@example.com
 $ git config --global core.editor vim
+????????????????????????????????????????????
+Here the problem is everytime when I want to push to github, it requires me to input username and password. I thougth it because the --global settings. But I did the git config user.name in my specific repository according to 1.5 introduction, it was still there. So I googled, and found:
+"If Git prompts you for a username and password every time you try to interact with GitHub, you're probably using the HTTPS clone URL for your repository. Using an HTTPS remote URL has some advantages: it's easier to set up than SSH, and usually works through strict firewalls and proxies. However, it also prompts you to enter your GitHub credentials every time you pull or push a repository."
+Anyway, I am still not clear about this kind of user management. will back to make it clear.
+??????????????????????????????????????????????
+
+1.7 Getting Help
+only remeber one way to get help: $ git help <verb>
+
+1.8 Summary
+You should have a basic understanding of what Git is and how it's different from the centralized version control system you may have previously been using. You should also now have a working version of Git on your system that's set up with your personal identity. It's now time to learn some Git basics.
