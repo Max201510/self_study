@@ -37,3 +37,79 @@ If you simiply remove the file from your working directory, it shows up under th
 * git mv file_from file_to
 
 2.3 Viewing the commit history
+By default without any parameter, 'git log' list all the commit log by reverse chronological (the order that something happened) order - that is, the most recent happend commit shows up first. This command lists each commit with its SHA-1 checksum, the author's name and email, the date written, and the commit message.
+git log -p: shows the difference introduced in each commit. 
+git log -number: number means the number of commit you want to show
+git log -p -number
+git log --stat: shows some abbreviated stats for each commit
+git log --pretty=oneline: show a commit one line
+git log --since=2.weeks
+
+2.4 Undoing things
+* amend changes to commit
+One of the undoing things happens is when you have committed your changes but you forgot some files to add. So you could run commit --amend:
+$ git commit -m 'initial commit'
+$ git add forgotten_file
+$ git commit --amend
+* unstaging areas
+If you add too many changes in your staging area, you could use 
+$ git reset HEAD <filename>
+to unstage
+* unmodified a file
+If you do not want to keep the changes in your file, you could use checkout
+$ git checkout -- <filename>
+
+2.5 working with remote
+To be able to collabrate on any Git project, you need to know how to manage your remote repository. Remote repository is one version of your project that stores in somewhere on the Internet.
+git remote: it lists the shortnames of each remote handle you've specified. If you've cloned your repository, you should at least see origin - that is the default name Git gives to the server you cloned from
+git remote -v: shows you the URLs that Git has stored for the shortname to be used when reading and writing to the remote.
+* adding remote repositories
+$ git remote add <shortname> <url>
+* fetching and pulling from your remotes
+$ git fetch [remote-name]
+fetch only downloads the data to your local repository, it doesnot automatically merge it with any of your work or modify what you've currently working on. You have to merge it manually into your work when you're ready.
+the git clone command automatically sets up your local master branch to track the remote master branch (or whatever the default branch is called) on the server you cloned from. Running git pull generally fetches data from the server you originally cloned from and automatically tries to merge it into the code you're currently working on.
+* pushing to your remotes
+when you have your project at a point that you want to share, you have to push it upstream.
+$ git push [remote-name][branch-name]
+This command works only if you cloned from a server to which you have write access and if nobody has pushed in the meantime. If you and someone else clone at the same time and they push upstream and then you push upstream, your push will rightly be rejected. You'll have to fetch their work first and incorporate it into your before you'll be allowed to push.
+* inspecting a remote
+$ git remote show [remote-name]
+* removing and renaming remotes
+???????????????????????????????????????????????????????
+I do not have a better understanding of remote part, because it has something to do with branch. poor understanding here.
+???????????????????????????????????????????????????????
+
+2.6 Tagging
+Like most VCSs, Git has the ability to tag specific points in history as being important. Typically people use this functionality to make release points (v1.0. and so on).
+* listing your tags
+$ git tag: lists the tags in alphabetical order
+* creating tags
+Git uses two main types of tags: lightweight and annotated.
+A lightweight tag is very much like a branch that does not change - it is just a pointer to a specific commit. Annotated tags, however, are stored as full objects in the Git databases. They're checksummed; contain the tagger name, email, and date; have a tagging message.
+* annotated tags
+easiest way is to specify -a when running tag command
+$ git tag -a v1.4 -m "my version 1.4"
+-m specifies a tagging message, whcih is stored with the tag.
+$ git show: shows the tag data along with the commit that was tagged.
+* lightweight tags
+This is basically the commit checksum stored in a file - no other information is kept.
+$ git tag v1.4-lw
+* tagging later
+suppose you forgot to tag the project at v1.2, whicch was that one commit. You can add it after the fact. To tag that commit, you specify the commit checksum (or part of it) at the end of the command
+$ git tag -a v1.2 9fceb02d0ae598e95dc970b74767f19372d61af8 
+* sharing tags
+By default, the git push command doesn't transfer tags to remote servers. You will have to explicitly push tags ot a shared server after you have created them. This process is jsut like sharing remote branches 
+$ git push origin [tagname]
+$ git push origin --tags: for if you have a lot of tags
+Now when someone else clones or pulls from your repository, they will get all your tags as well.
+*checking out tags
+??????????????????????????????????
+do not understand
+??????????????????????????????????
+
+2.7 git aliases
+$ git config --global alias.co checkout
+
+2.8 summary
+At this point, you can do all the basic local Git operations - creating or cloning a repository, making changes, staging and committing thoes changes, and viewing the history of all the changes the repository has been throught. Next, we will cover Git's killer featrue: its braching model.
