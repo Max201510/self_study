@@ -1,0 +1,8 @@
+task hello << {
+	  println "Hello Word"
+}
+task copyFile(type: Copy){
+	from "src"
+	into "dst"
+}
+
