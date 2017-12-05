@@ -1,0 +1,14 @@
+    Insert a picture in LaTex:
+    \usepackage{graphicx
+    \begin{document}
+    
+    \begin{figure}
+      \includegraphics[width=\linewidth]{boat.jpg}
+      \caption{A boat.}
+      \label{fig:boat1}
+    \end{figure}
+    
+    Figure \ref{fig:boat1} shows a boat.
+    
+    \end{document}
+    
