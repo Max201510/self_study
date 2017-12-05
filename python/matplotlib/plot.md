@@ -1,7 +1,7 @@
 # Introduction #
 Matplotlib is a Python 2D plotting library which produces publication quality figures in a variety of hardcopy formats and interactive environments across platforms.  
 You can generate plots, histograms, power spectra, bar charts, errorcharts, scatterplots, etc., with just a few lines of code. 
-## Line grap (plot)##
+## Line grap (plot) ##
     #Importing pyplot
     from matplotlib import pyplot as plt
     
