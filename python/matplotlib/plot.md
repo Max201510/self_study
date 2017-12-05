@@ -95,4 +95,4 @@ Bar charts with matplotlib are basically 1 slight change, same with scatter plot
     
     plt.show()
 
-From this [link](https://pythonprogramming.net/downloads/style.zip).
+Please From this [link](https://pythonprogramming.net/downloads/style.zip).
