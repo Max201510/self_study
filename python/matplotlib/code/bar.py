@@ -20,3 +20,6 @@ plt.ylabel('Y axis')
 plt.xlabel('X axis')
 
 plt.show()
+
+def fun_max():
+    pass
